@@ -14,12 +14,12 @@ type IsTuple<T> =
 
 
 // ==== Alternatives ====
-type IsAny<T> = 1 extends T & 0 ? true : false;
+type _IsAny<T> = 1 extends T & 0 ? true : false;
 // reference: 01042-medium-isnever
 // type IsNever<T> = [T] extends [never] ? true : false;
 
 type IsTuple1<T> =
-  true extends IsAny<T> | IsNever<T>
+  true extends _IsAny<T> | IsNever<T>
   ? false
   : T extends
       | readonly [unknown, ...unknown[]]
